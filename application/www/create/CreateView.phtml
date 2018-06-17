@@ -1,0 +1,60 @@
+    <h2>Création d'un compte client</h2>
+<form class="generic-form" action="create" method="POST">
+	<fieldset>
+		<legend>Identité et coordonnées</legend>
+		<ul>
+			<li> 
+				<label>Nom</label>
+				<input type="text" class='generic-form input[type="text"]' name="lastname"><br>
+				<br>
+			</li>
+			<li>
+				<label>Prénom</label>
+				<input type="text" class='generic-form input[type="text"]' name="firstname"><br>
+				<br>
+			</li>
+			<li>
+				<label>Date de naissance</label>
+				<input type="date" class='generic-form' name="birthday"><br>
+				<br>
+			</li>
+			<li>
+				<label>Adresse</label>
+				<textarea class='generic-form input[type="textarea"] textarea' name="adress"></textarea><br>
+				<br>
+			</li>
+			<li>
+				<label>Code postal</label>
+				<input type="text" class='generic-form input zip-code' name="zipcode"><br>
+				<br>
+			</li>
+			<li>
+				<label>Ville</label>
+				<input type="text" class='generic-form input[type="text"]' name="city"><br>
+				<br>
+			</li>
+			<li>
+				<label>Téléphone</label>
+				<input type="text" class='generic-form phone' name="phone"><br>
+				<br>
+			</li>
+	</fieldset>
+	
+	<fieldset>
+		<legend>Informations d'authentification</legend>
+		<ul>
+			<li>
+				
+				<label>E-mail</label>
+				<input type="mail" class='generic-form input[type="mail"]' name="mail"><br>
+				<br>
+			</li>
+			<li>
+				<label>Mot de passe</label>
+				<input type="password" class='generic-form input[type="password"]' name="password">
+			</li>
+		</ul>
+	</fieldset>
+	<button type="submit" class="button button-primary">Connexion</button>
+	<button type="reset" class="button button-cancel">Annuler</button>
+ </form>

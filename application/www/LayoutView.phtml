@@ -34,13 +34,36 @@
 <!-- Interface utilisateur -->
 <nav class="user-interface">
     <ul class="link-list">
-        <!-- Code HTML/PHP à écrire -->
+        <li class="button button-primary"><a="#">Créer un compte</a></li>
+        <li class="hidden"><a="#" class="hidden">Réserver</a></li>
+        <li class="hidden"><a="#" class="hidden">Commander</a></li>
+
+<?php
+
+    if(empty($_POST['mail']) AND empty($_POST['password'])) { ?>
+        <li class="button button-primary"><a="ConnectionController.class.php">Connexion</a></li>
+    <?php } else if(isset($_POST['mail']) AND isset($_POST['password'])) {
+        $infosUser = getUserLog($_POST);
+        ?>
+        
+        <h4>Bonjour <?=$infosUser['firstname']?> <?=$infosUser['lastname']?></h4>
+
+        <li class="button button-primary"><a="#">Déconnexion</a></li>
+        
+    <?php }
+?>
+       
+
+        
     </ul>
 </nav>
 
 <main>
     <!-- Affichage du template lié à la vue -->
     <?php include $this->viewData['template'] ?>
+
+   
+
 </main>
 
 <!-- Pied de page commun -->

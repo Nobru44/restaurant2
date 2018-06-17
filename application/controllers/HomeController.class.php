@@ -1,4 +1,8 @@
+
 <?php
+
+session_start();
+$page = "home";
 
 class HomeController
 {
