@@ -16,6 +16,12 @@ class CreateController
 
     public function httpPostMethod(Http $http, array $formFields)
     {
+        
+        var_dump($formFields);   
+        $userModel = new UserModel();
+        $userModel->createUser($formFields);
+        $http->redirectTo('login');
+
         /*
          * Méthode appelée en cas de requête HTTP POST
          *
@@ -24,24 +30,3 @@ class CreateController
          */
     }
 }
-
-
- $user = [];
-    $user['firstname'] = $_POST['firstname'];
-    $user['lastname'] = $_POST['lastname'];
-    $user['birthday'] = $_POST['birthday'];
-    $user['mail'] = $_POST['mail'];
-    $user['password'] = $_POST['password'];
-    $user['adress'] = $_POST['adress'];
-    $user['zipcode'] = $_POST['zipcode'];
-    $user['city'] = $_POST['city'];
-    $user['phone'] = $_POST['phone'];
-    print_r($user);
-
-function saveUser(array $user) {
-    $sql = 'INSERT INTO users (id, firstname, lastname, mail, password, adress, zipcode, city, phone, created_at, updated_at) VALUES (NULL, :firstname, :lastname, :mail, :password, :adress, :zipcode, :phone, DATE(), DATE())'; 
-        executeSql($sql, $user);
-}
-
-
-saveUser($user);

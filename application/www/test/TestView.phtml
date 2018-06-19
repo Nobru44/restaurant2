@@ -1,22 +1,2 @@
-<?php
-
-$new = new Database();
-$tableaux = $new->query('SELECT * FROM product');
 
 
-?>
-
-<table class="generic-table meal-list">
-    <caption>Carte du restaurant</caption>
-    <tbody>
-     	<tr>   <!-- Code HTML à écrire -->
-<?php foreach ($tableaux AS $product):?>
-			<td><img src="<?= $wwwUrl ?>/<?=$product['url_img']?>"></td>
-			<td><h4><?=$product['name']?></h4></td>
-			<td><?=$product['description']?></td>
-			<td><strong><?=$product['tax']?> €</strong></td>
-		</tr>
-<?php endforeach ?>
-        
-    </tbody>
-</table>

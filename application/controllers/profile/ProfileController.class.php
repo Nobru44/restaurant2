@@ -14,6 +14,12 @@ class ProfileController
 
     public function httpPostMethod(Http $http, array $formFields)
     {
+
+
+       var_dump($formFields);   
+        $userModel = new UserModel();
+        $userModel->createUser($formFields);
+        $http->redirectTo('login');
     	/*
     	 * Méthode appelée en cas de requête HTTP POST
     	 *

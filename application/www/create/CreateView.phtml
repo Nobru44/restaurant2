@@ -1,5 +1,5 @@
     <h2>Création d'un compte client</h2>
-<form class="generic-form" action="create" method="POST">
+<form class="generic-form" action="<?=$requestUrl?>/profile" method="POST">
 	<fieldset>
 		<legend>Identité et coordonnées</legend>
 		<ul>
@@ -55,6 +55,6 @@
 			</li>
 		</ul>
 	</fieldset>
-	<button type="submit" class="button button-primary">Connexion</button>
+	<button type="submit" class="button button-primary">Enregistrer</button>
 	<button type="reset" class="button button-cancel">Annuler</button>
  </form>

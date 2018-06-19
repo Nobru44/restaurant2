@@ -14,7 +14,8 @@ class Database
 		(
 			$configuration->get('database', 'dsn'),
 			$configuration->get('database', 'user'),
-			$configuration->get('database', 'password')
+			$configuration->get('database', 'password'),
+			array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
 		);
 
 		$this->pdo->exec('SET NAMES UTF8');

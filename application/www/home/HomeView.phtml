@@ -2,10 +2,6 @@
 
 <!-- Code HTML à écrire -->
 
-<?php
-$listProducts = new ProductModel();
-$tableauProducts = $listProducts->getAllProducts();
-?>
 
 <!-- Liste des aliments -->
 
@@ -13,13 +9,13 @@ $tableauProducts = $listProducts->getAllProducts();
     <caption>Carte du restaurant</caption>
     <tbody>
      	<tr>   <!-- Code HTML à écrire -->
-<?php foreach ($tableauProducts AS $product):?>
+<!-- <?php foreach ($tableauProducts AS $product):?>
 			<td><img src="<?= $wwwUrl ?>/<?=$product['url_img']?>"></td>
 			<td><h4><?=$product['name']?></h4></td>
 			<td><?=$product['description']?></td>
 			<td><strong><?=$product['tax']?> €</strong></td>
 		</tr>
-<?php endforeach ?>
+<?php endforeach ?> -->
         
     </tbody>
 </table>
