@@ -1,5 +1,12 @@
 
     <h2>Se connecter avec un compte utilisateur</h2>
+
+
+<?php 
+if (!empty($errorMessage)):?>
+	<h4><?=$errorMessage?></h4>
+<?php endif ?>
+
 <form class="generic-form" action="" method="POST">
 	<fieldset>
 		<legend>Informations d'authentification</legend>

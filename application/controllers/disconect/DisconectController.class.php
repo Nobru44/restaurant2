@@ -1,10 +1,14 @@
 <?php
 
 
-class CreateController
+class DisconectController
 {
     public function httpGetMethod(Http $http, array $queryFields)
     {
+        UserSession::logout();
+
+ 		$http->redirectTo('');
+
         /*
          * Méthode appelée en cas de requête HTTP GET
          *
@@ -16,10 +20,6 @@ class CreateController
     public function httpPostMethod(Http $http, array $formFields)
     {
         
-        var_dump($formFields);   
-        $userModel = new UserModel();
-        $userModel->createUser($formFields);
-        $http->redirectTo('login');
 
         /*
          * Méthode appelée en cas de requête HTTP POST
@@ -29,3 +29,6 @@ class CreateController
          */
     }
 }
+
+
+

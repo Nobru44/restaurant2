@@ -1,16 +1,13 @@
-
 <?php
 
-
-
-class HomeController
+class OrderController
 {
     public function httpGetMethod(Http $http, array $queryFields)
     {
-        $productList = ProductModel::getAllProducts();
-        return ['productList' => $productList];
+    	   
 
-    	
+      $productList = ProductModel::getAllProducts(); 
+      return ['productList' => $productList];
 
         /*
     	 * Méthode appelée en cas de requête HTTP GET
@@ -19,8 +16,12 @@ class HomeController
     	 * L'argument $queryFields contient l'équivalent de $_GET en PHP natif.
     	 */
     }
+
     public function httpPostMethod(Http $http, array $formFields)
     {
+
+
+      
     	/*
     	 * Méthode appelée en cas de requête HTTP POST
     	 *

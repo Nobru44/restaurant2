@@ -38,21 +38,6 @@ class UserModel {
 		$db->executeSql($sql, $user);
 	}
 	
-	// public function getUserByLog(array $user) {
-		
-	// 	if(empty($user['mail'])) {
-	// 		throw new Exception("Email empty");
-	// 	}
-	// 	if (empty($user['password'])) {
-	// 		throw new Exception("password empty");
-	// 	}
-	// 	$user['password'] = crypt($user['password'], 'abc');
-	// 	$db = new Database();
-	// 	$sql = "SELECT * FROM users WHERE mail LIKE :mail AND password LIKE :password";
-	// 	$infosUser = $db->queryOne($sql, $user);
-	// 	return $infosUser;
-
-	// }
 
 	public static function getUserByEmail($mail) {
 		$db = new Database();

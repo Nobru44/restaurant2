@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="<?= $wwwUrl ?>/css/ui-form.css">
     <link rel="stylesheet" href="<?= $wwwUrl ?>/css/ui-table.css">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps|Karla">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
     <!-- Librairie jQuery -->
     <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
@@ -37,19 +38,22 @@
 
 <?php   
         $userSession = new UserSession();
-
         if ($userSession->isConnected() == false):?> 
 
         <li class="button button-primary"><a href="<?=$requestUrl?>/create">Créer un compte</a></li>
         <li class="layout-right button button-primary"><a href="<?=$requestUrl?>/connection">Connexion</a></li>
 <?php else :?>
         <li class="button button-primary"><a href="#">Réserver</a></li>
-        <li class="button button-primary"><a href="#">Commander</a></li>
+        <li class="button button-primary"><a href="<?=$requestUrl?>/order">Commander</a></li>
 <?php   
         $user = $userSession->getUser();
+        $cartUser = UserSession::createCart($user['id']);
+        // $user['cart'] = UserSession::createCart($user);
+        // print_r($user['cart']);
 ?>
-        <p class"layout-right">Bonjour <?=$user['firstname']?> <?=$user['lastname']?></p> 
-        <li class="layout-right button button-primary"><a href="#">Déconnexion</a></li>
+        <p class"layout-right">Bonjour <?=$user['firstname']?> <?=$user['lastname']?></p>
+        <p><i class="fas fa-cart-arrow-down"></i>Votre panier</p>
+        <li class="layout-right button button-primary"><a href="<?=$requestUrl?>/disconect">Déconnexion</a></li>
 <?php endif ?>
         
     </ul>
@@ -68,7 +72,7 @@
 
     <div>
 <?php
-Tools::pre($_SESSION);
+
 ?>
 </div>
 

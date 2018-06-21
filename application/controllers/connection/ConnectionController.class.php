@@ -34,6 +34,7 @@ class ConnectionController
         $passwordCrypted = crypt($password, 'rl');
         if ($passwordCrypted != $user['password']) {
             return ['errorMessage' => "Mot de passe invalide"]; 
+
         } 
         $userSession = new UserSession();
         $userSession->connect($user);
