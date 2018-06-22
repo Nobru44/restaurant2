@@ -1,7 +1,10 @@
 
+<?php 
+print_r($_SESSION);
+?>
 <h2>Passer une commande</h2>
 
-<form class="generic-form" action="" method="POST">
+<form class="generic-form" action="<?=$requestUrl?>/cart" method="POST">
     <fieldset>
         <legend>Ajouter un article</legend>
         <ul>
@@ -18,25 +21,24 @@ endforeach
 
 ?>
                 </select>
-                <article id="meal-details" class="meal-details no-left-label">
-                    <img src="<?= $wwwUrl ?>/<?=$product['url_img']?>" alt="Photo du produit">
-                    <p><?=$product['description']?></p>
-                    <span>Prix : <strong><?= Tools::getPriceFormated($product['priceHT']) ?></strong></span>
-                </article>
+            <article id="meal-details" class="meal-details no-left-label">
+            </article>    
             </li>
             <li>
                 <label for="quantity">Quantité :</label>
                 <input id="quantity" class="quantity" type="text" maxlength="2" name="quantity" data-name="Quantité" data-type="positive-integer" data-required>
             </li>
             <li>
-                <button class="button button-primary no-left-label" type="submit">Ajouter</button>
+                <button class="button button-primary no-left-label" type="button">Ajouter</button>
             </li>
         </ul>
     </fieldset>
 
    <fieldset>
         <legend>Récapitulatif de la commande</legend>
-        <section id="order-recopilatif"></section>
+        <section id="order-recap">
+            
+        </section>
     </fieldset>
 </form>
 

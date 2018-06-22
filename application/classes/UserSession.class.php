@@ -21,9 +21,18 @@ class UserSession {
 	}
 	static function createCart($id_user) {
 		if (UserSession::isConnected()) {
-		$_SESSION['cart'] = array(); 
+		$_SESSION['cart'] = array();
 		}
 	}
+	static function pushOrderInCart(array $infosOrder) {
 
-
+		
+		array_push($_SESSION['cart'], $infosOrder);
+		print_r($_SESSION['cart']);		
+	}
 }
+
+
+// $_SESSION['panier']['libelleProduit'] = array();
+//       $_SESSION['panier']['qteProduit'] = array();
+//       $_SESSION['panier']['prixProduit'] = array();

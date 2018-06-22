@@ -38,6 +38,7 @@ class ConnectionController
         } 
         $userSession = new UserSession();
         $userSession->connect($user);
+        $userSession->createCart($user['id']);
         
         $http->redirectTo('');
 
