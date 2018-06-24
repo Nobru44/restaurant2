@@ -1,10 +1,9 @@
 
-<?php 
-print_r($_SESSION);
-?>
+
 <h2>Passer une commande</h2>
 
-<form class="generic-form" action="<?=$requestUrl?>/cart" method="POST">
+<form class="generic-form">
+
     <fieldset>
         <legend>Ajouter un article</legend>
         <ul>
@@ -29,7 +28,7 @@ endforeach
                 <input id="quantity" class="quantity" type="text" maxlength="2" name="quantity" data-name="Quantité" data-type="positive-integer" data-required>
             </li>
             <li>
-                <button class="button button-primary no-left-label" type="button">Ajouter</button>
+                <button id="add" class="button button-primary no-left-label" type="button">Ajouter</button>
             </li>
         </ul>
     </fieldset>
@@ -44,10 +43,15 @@ endforeach
 
 <ul class="link-list">
     <li>
-        <button id="validate-order" class="button button-primary">Valider la commande</button>
+    <form action="<?=$requestUrl?>/validate" method="POST">
+        <button  id="validate-order" type="button" class="button button-primary">Valider la commande</button>
+    </form>
         <a class="button button-cancel small" href="/dev/resto/final/index.php">Annuler</a>
     </li>
 </ul>
 
 <script src="<?= $wwwUrl ?>/js/order.js"></script>
 
+<?php 
+print_r($_SESSION);
+?>

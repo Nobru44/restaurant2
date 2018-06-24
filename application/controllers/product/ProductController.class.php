@@ -8,7 +8,7 @@ class ProductController
     public function httpGetMethod(Http $http, array $queryFields)
     {
         
-        print_r($queryFields);
+        
         $productId = $queryFields['id'];
         
         $product = ProductModel::getProductById($productId);

@@ -1,9 +1,14 @@
 
+
+<table id="recap">
 <?php foreach ($products as $product): ?>
 <h3>Produit : <?= $product['name'] ?></h3>
 <p>Quantité : <?= $product['quantity']?><p>
 <p>Total : <?= $product['tax'] * $product['quantity'] ?> €</p>
-<button id="virer-article" data-id="<?= $product['id']?>" type='button'>Supprimer</button>
+<button class="virer-article" data-id="<?= $product['id']?>" type='button'><i class="far fa-trash-alt"></i> Supprimer</button>
 
 
-<?php endforeach ?>
+<?php endforeach 
+
+?>
+</table>

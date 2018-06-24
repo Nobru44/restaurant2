@@ -1,0 +1,73 @@
+<?php
+print_r($facture);
+print_r($list);
+print_r($totalHT);
+?>
+
+
+<h2><i class="fa fa-check"></i> Payer la commande</h2>
+
+<section class="invoice">
+    <p><strong><?= $facture['firstname']?> <?= $facture['lastname']?></strong></p>
+    <p><?= $facture['adress']?></p>
+    <p><span class="city"><?= $facture['zipcode']?> <?= $facture['city']?></span></p>
+</section>
+
+<table class="generic-table meal-list">
+    <caption>Récapitulatif de la commande</caption>
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th class="number">Quantité</th>
+            <th class="number">Prix Unitaire</th>
+            <th class="number">Prix Total</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <td colspan="3">Total HT</td>
+
+
+            <td><?=$totalHT?> €</td>
+        </tr>
+        <tr>
+            <td colspan="3">TVA (20 %)</td>
+            <td><?=$totalHT * 0.2?> €</td>
+        </tr>
+        <tr>
+            <td class="colorful" colspan="3">Total TTC</td>
+            <td class="colorful"><?= Tools::getPriceFormated($totalHT)?></td>
+        </tr>
+        <tr class="small-notice">
+            <td colspan="4"></td>
+        </tr>
+    </tfoot>
+    <tbody>
+        
+
+<?php foreach ($list as $product):?>
+        
+        <tr>  
+            <td>
+                <img src="<?= $wwwUrl ?>/<?=$product['url_img']?>">
+                <em><?=$product['name']?></em>
+            </td>
+            <td class="number"><?=$product['quantity']?></td>
+            <td class="number"><?=$product['priceHT']?> €</td>
+            <td class="number"><?=$product['priceHT'] * $product['quantity']?> €</td> 
+        </tr>           
+<?php endforeach ?>
+    </tbody>
+</table>
+
+<hr>
+<h3>Merci de bien vouloir procéder au paiement de la commande.</h3>
+    <form class="generic-form" action="<?=$requestUrl?>/end" method="POST">
+        <ul>
+            <li>
+                <input class="button button-primary" type="submit" value="Payer">
+                <a class="button button-cancel small" href="/dev/resto/final/index.php">Annuler</a>
+            </li>
+        </ul>
+    </form>
+</main>

@@ -6,35 +6,32 @@ class CartController
     {
         
         $products = Cart::getProductsInCart();
-        return ['products'=> $products, '_raw_templateraw'=> true];
+        return ['products'=> $products, '_raw_template'=> true];
 
-    
+
+
+        
 
     }
 
     public function httpPostMethod(Http $http, array $formFields)
     {
         
+        
+
+        if(isset($formFields['del'])) {
+            $id = $formFields['del'];
+            Cart::deleteOneProduct($id);
+        } else {
        
         $quantity = $formFields['quantity'];
-        $productId = $formFields['id'];
+        $productId = $formFields['id'];       
         
-        
-       Cart::addInCart($productId, $quantity);
+        Cart::addInCart($productId, $quantity);
 
-       $products = Cart::getProductsInCart();
+        $products = Cart::getProductsInCart();
 
-       return ['products'=> $products, '_raw_template'=>true];
-
-
-       
-       /* $infosOrder['name'] = $infosProduct['name'];
-        $infosOrder['tax'] = $infosProduct['tax'];
-        $infosOrder['price'] = $infosOrder['tax'] * $infosOrder['quantity'];
-       
-        UserSession::pushOrderInCart($infosOrder);
-        // var_dump($_SESSION);
-        return ['_raw_template' => true, 'infosOrder' => $infosOrder];
-        */
+        return ['products'=> $products, '_raw_template'=>true];
+        }
     }
 }

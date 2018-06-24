@@ -5,11 +5,11 @@ $('#meal').on('change', function (){
 	console.log(id);
 	
 	var url = getRequestUrl() + '/product';
-	console.log(url);
+	
 	var params = {
 		id: id
 		};
-	console.log(params);
+
 	$.get(url, params, function (html) {
 		$('#meal-details').html(html);
 	})
@@ -18,7 +18,7 @@ $('select').trigger('change');
 
 
 
-$('.button').on('click', function (){
+$('#add').on('click', function (){
 	var id = $('#meal').val();
 	var quantity = $('#quantity').val();
 	
@@ -33,12 +33,27 @@ $('.button').on('click', function (){
 }); 
 
 function loadCart() {
-	// load cart
+	
 	var url = getRequestUrl() + '/cart';
 
 	$.get(url, function (html) {
-		$('.box-cart').html(html);
+		$('#order-recap').html(html);
 	});	
 }
 
 loadCart();
+
+	$(document).on('click', '.virer-article', function (){
+		var del = $(this).attr('data-id');
+		console.log(del);
+		var url = getRequestUrl() + '/cart';
+
+		var param = {
+		del: del,
+		};
+		$.post(url, param, function (html) {
+		$('#order-recap').html(html);
+		})
+
+		loadCart();
+	})

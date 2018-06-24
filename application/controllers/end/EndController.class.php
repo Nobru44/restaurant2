@@ -1,24 +1,21 @@
 <?php
 
-class OrderController
+class EndController
 {
     public function httpGetMethod(Http $http, array $queryFields)
     {
-    	   
 
-      $productList = ProductModel::getAllProducts(); 
-      return ['productList' => $productList];
-
-
-
-     
     }
+
 
     public function httpPostMethod(Http $http, array $formFields)
     {
 
+        var_dump($_SESSION['cart']);
 
-      
+        Cart::videCart();
+        echo "Merci de votre achat";
+        var_dump($_SESSION['cart']);
     	
     }
 }

@@ -6,6 +6,12 @@ class Cart {
 			$_SESSION['cart'] = [];	
 		}
 	}
+    static function videCart() {
+        if(!empty($_SESSION['cart'])) {
+            $_SESSION['cart'] = "";
+        }
+    }
+	
 	static function addInCart($productId, $quantity) {
 		$cart = $_SESSION['cart'];
 		if (isset($cart[$productId])) {
@@ -15,6 +21,7 @@ class Cart {
 		}
 		$_SESSION['cart'] = $cart;
 	}
+	
 	static function getProductsInCart() {
         $cart = $_SESSION['cart'];
         $products = [];
@@ -27,7 +34,21 @@ class Cart {
         }
         return $products;
     }
+    
     static function getProductNumber() {
     	return count($_SESSION['cart']);
+    }
+    
+    static function deleteOneProduct($productId) {
+    	unset($_SESSION['cart'][$productId]);
+    } 
+
+    static function totalPriceHT(array $cart) {
+    		$priceTotal = 0;
+    	foreach ($cart AS $product) {
+    		$productTotal = $product['quantity'] * $product['priceHT'];
+    		$priceTotal += $productTotal;
+    		}
+    	return $priceTotal;
     }
 }

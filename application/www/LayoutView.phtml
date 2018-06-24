@@ -47,13 +47,14 @@
         <li class="button button-primary"><a href="<?=$requestUrl?>/order">Commander</a></li>
 <?php   
         $user = $userSession->getUser();
-        $cartUser = UserSession::createCart($user['id']);
-        // $user['cart'] = UserSession::createCart($user);
-        // print_r($user['cart']);
+        // $cartUser = UserSession::createCart($user['id']);
+        
+       
 ?>
         <p class"layout-right">Bonjour <?=$user['firstname']?> <?=$user['lastname']?></p>
-        <p><i class="fas fa-cart-arrow-down"></i>Votre panier</p>
+        <p><i class="fas fa-cart-arrow-down"></i> Votre panier contient  <?= Cart::getProductNumber() ?> produit(s)</p>
         <li class="layout-right button button-primary"><a href="<?=$requestUrl?>/disconect">Déconnexion</a></li>
+
 <?php endif ?>
         
     </ul>
